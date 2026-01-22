@@ -1,0 +1,148 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1dn0y7i6ahk8"]
+
+[ext_resource type="Script" uid="uid://ehj4pew230no" path="res://addons/DiaLogo/DialogueTypes/SimpleDialogueMenu.cs" id="1_8nvng"]
+
+[node name="SimpleDialogue" type="Control"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_8nvng")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="UpButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "↑"
+
+[node name="IDLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "ID:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+rounded = true
+allow_greater = true
+alignment = 2
+
+[node name="Spacer1" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharactgerEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+placeholder_text = "Enter name"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="ActionLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Action:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+placeholder_text = "Enter Action"
+
+[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DelButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "-"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="DownButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "↓"
+
+[node name="DialogueLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Dialogue Line:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogueEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+placeholder_text = "Type Your Dialogue Here!"
+
+[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="NextLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Next ID:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox2" type="SpinBox" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+rounded = true
+allow_greater = true
+alignment = 2
+
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/UpButton" to="." method="MoveUp"]
+[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/SpinBox" to="." method="ChangedID"]
+[connection signal="text_changed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/CharactgerEdit" to="." method="ChangedCharacter"]
+[connection signal="text_changed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/ActionEdit" to="." method="ChangedAction"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/DelButton" to="." method="DeletePressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/DownButton" to="." method="MoveDown"]
+[connection signal="text_changed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/DialogueEdit" to="." method="ChangedDialogue"]
+[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/SpinBox2" to="." method="ChangedNextID"]
