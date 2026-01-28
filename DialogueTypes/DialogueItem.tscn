@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://kurkd2nqhaaj"]
+[gd_scene format=3 uid="uid://kurkd2nqhaaj"]
 
 [ext_resource type="Script" uid="uid://b5q6q48xovyd8" path="res://addons/DiaLogo/DialogueTypes/DialogueItem.cs" id="1_5ra5k"]
 
-[node name="DialogueLine" type="Control"]
+[node name="DialogueLine" type="Control" unique_id=375251440]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 3
 anchors_preset = 10
@@ -10,7 +10,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_5ra5k")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=699319913]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,10 +20,10 @@ grow_vertical = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=209269090]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel" unique_id=217261175]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,16 +31,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer" unique_id=529631330]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="UpButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="UpButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1776528889]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 text = "↑"
 
-[node name="IDLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="IDLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1393913148]
 layout_mode = 2
 text = "ID:"
 fit_content = true
@@ -48,17 +48,17 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=523152959]
 layout_mode = 2
 rounded = true
 allow_greater = true
 alignment = 2
 
-[node name="Spacer1" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="Spacer1" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1923943066]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1072803881]
 layout_mode = 2
 text = "Character:"
 fit_content = true
@@ -66,30 +66,30 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharactgerEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="CharactgerEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=447766345]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 placeholder_text = "Enter name"
 
-[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=898839615]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DelButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="DelButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1565483503]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 text = "-"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer" unique_id=25243119]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="DownButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+[node name="DownButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=1118580945]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 text = "↓"
 
-[node name="DialogueLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+[node name="DialogueLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=2110034066]
 layout_mode = 2
 text = "Dialogue Line:"
 fit_content = true
@@ -97,17 +97,17 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogueEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+[node name="DialogueEdit" type="TextEdit" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=548244617]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 placeholder_text = "Type Your Dialogue Here!"
 
-[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=1563261661]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="NextLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+[node name="NextLabel" type="RichTextLabel" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=1904412975]
 layout_mode = 2
 text = "Next ID:"
 fit_content = true
@@ -115,7 +115,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpinBox2" type="SpinBox" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2"]
+[node name="SpinBox2" type="SpinBox" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=439427908]
 layout_mode = 2
 min_value = -1.0
 rounded = true
