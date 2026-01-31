@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://chwqjs7rp4jjj"]
+
+[ext_resource type="Script" uid="uid://eakykv3oop2v" path="res://addons/DiaLogo/DialogueTypes/ResponseItem.cs" id="1_m651e"]
+
+[node name="ResponseItem" type="Control" unique_id=503777517]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_m651e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1695258624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=2023068818]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="ResponseLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=225745084]
+layout_mode = 2
+text = "Response:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResponseEdit" type="TextEdit" parent="HBoxContainer" unique_id=1199310107]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Action"
+
+[node name="Spacer2" type="Control" parent="HBoxContainer" unique_id=754752945]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="NextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=1107274590]
+layout_mode = 2
+text = "Next ID:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextIDEdit" type="SpinBox" parent="HBoxContainer" unique_id=931113297]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -1.0
+rounded = true
+allow_greater = true
+alignment = 2
+
+[node name="DelButton" type="Button" parent="HBoxContainer" unique_id=1192935235]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "-"

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dkjwra87ohkm4"]
 
 [ext_resource type="Script" uid="uid://bmbl7you8k15m" path="res://addons/DiaLogo/UI/DiaLogoMenu.cs" id="1_cd3xb"]
+[ext_resource type="Theme" uid="uid://c8grbjsbnw5l" path="res://addons/DiaLogo/DialogoModernTheme.tres" id="1_rtrcf"]
 [ext_resource type="PackedScene" uid="uid://blibsha7t5jcs" path="res://addons/DiaLogo/UI/TopBar.tscn" id="2_lwdo5"]
+[ext_resource type="Theme" uid="uid://cmxd2hxtrpcvw" path="res://addons/DiaLogo/DialogoClassicTheme.tres" id="2_rtrcf"]
 
 [node name="DiaLogo" type="Control" unique_id=1637682376]
 layout_mode = 3
@@ -13,6 +15,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_cd3xb")
+ModernTheme = ExtResource("1_rtrcf")
+ClassicTheme = ExtResource("2_rtrcf")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=205724388]
 layout_mode = 1

@@ -7,6 +7,7 @@ namespace DiaLogo
 {
 	//[JsonDerivedType(typeof(SimpleDialogue), "SimpleDialogue")]
 	[XmlInclude(typeof(ActionDialogue))]
+	[XmlInclude(typeof(ActionDialogueResponse))]
 	[XmlInclude(typeof(DialogueLine))]
 	public abstract class DialogueBase
 	{

@@ -8,6 +8,9 @@ namespace DiaLogo
 	[Tool]
 	public partial class DiaLogoMenu : Control
 	{
+		[Export] Theme ModernTheme { get; set; }
+		[Export] Theme ClassicTheme { get; set; 
+		}
 		private VBoxContainer dialogueLineVBox;
 
 		private Button addButton;
@@ -24,21 +27,33 @@ namespace DiaLogo
 
 		public override void _Ready()
 		{
+			EditorSettings editorSetting = EditorInterface.Singleton.GetEditorSettings();
+			string currentTheme = (string)editorSetting.GetSetting("interface/theme/style");
+			
+			if (currentTheme == "Modern")
+			{
+				Theme = ModernTheme;
+			}
+			else if (currentTheme == "Classic")
+			{
+				Theme = ClassicTheme;
+			}
+
 			//Evil stuff here, I actually hate it, should probably fix eventually before I break it
 			dialogueLineVBox = GetNode<VBoxContainer>("MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/DialogueLineVBox");
 
-			dialogueOptions = GetNode<OptionButton>("MarginContainer/VBoxContainer/TopBar/MarginContainer/Panel/HBoxContainer/OptionButton");
+			dialogueOptions = GetNode<OptionButton>("MarginContainer/VBoxContainer/TopBar/MarginContainer/PanelContainer/HBoxContainer/OptionButton");
 
-			addButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/Panel/HBoxContainer/AddButton");
+			addButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/PanelContainer/HBoxContainer/AddButton");
 			addButton.Pressed += AddDialogue;
 
-			saveButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/Panel/HBoxContainer/SaveButton");
+			saveButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/PanelContainer/HBoxContainer/SaveButton");
 			saveButton.Pressed += SaveDialogue;
 
-			saveAsButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/Panel/HBoxContainer/SaveAsButton");
+			saveAsButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/PanelContainer/HBoxContainer/SaveAsButton");
 			saveAsButton.Pressed += SaveDialogueAs;
 
-			loadButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/Panel/HBoxContainer/LoadButton");
+			loadButton = GetNode<Button>("MarginContainer/VBoxContainer/TopBar/MarginContainer/PanelContainer/HBoxContainer/LoadButton");
 			loadButton.Pressed += LoadDialogue;
 
 			fileDialog = GetNode<FileDialog>("FileDialog");
@@ -58,6 +73,9 @@ namespace DiaLogo
 			{
 				case "Action Dialogue":
 					dialogueObject = new ActionDialogue();
+					break;
+				case "Action Dialogue with Responses":
+					dialogueObject = new ActionDialogueResponse();
 					break;
 				case "Dialogue Line":
 					dialogueObject = new DialogueLine();
@@ -146,12 +164,10 @@ namespace DiaLogo
 				switch (dialogueBase)
 				{
 					case ActionDialogue ad:
-						SceneToAdd = GD.Load<PackedScene>(dialogueBase.SceneUID);
-						instance = (ActionDialogueItem)SceneToAdd.Instantiate();
-						break;
+					case ActionDialogueResponse adr:
 					case DialogueLine od:
 						SceneToAdd = GD.Load<PackedScene>(dialogueBase.SceneUID);
-						instance = (DialogueItem)SceneToAdd.Instantiate();
+						instance = (BaseItem)SceneToAdd.Instantiate();
 						break;
 				}//*/
 

@@ -18,25 +18,25 @@ namespace DiaLogo
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			upButton = GetNode<Button>("MarginContainer/Panel/VBoxContainer/HBoxContainer/UpButton");
+			upButton = GetNode<Button>("%UpButton");
 			upButton.Pressed += MoveUp;
 
-			downButton = GetNode<Button>("MarginContainer/Panel/VBoxContainer/HBoxContainer2/DownButton");
+			downButton = GetNode<Button>("%DownButton");
 			downButton.Pressed += MoveDown;
 
-			delButton = GetNode<Button>("MarginContainer/Panel/VBoxContainer/HBoxContainer/DelButton");
+			delButton = GetNode<Button>("%DelButton");
 			delButton.Pressed += DeletePressed;
 
-			character = GetNode<TextEdit>("MarginContainer/Panel/VBoxContainer/HBoxContainer/CharactgerEdit");
+			character = GetNode<TextEdit>("%CharactgerEdit");
 			character.TextChanged += ChangedCharacter;
 
-			dialogue = GetNode<TextEdit>("MarginContainer/Panel/VBoxContainer/HBoxContainer2/DialogueEdit");
+			dialogue = GetNode<TextEdit>("%DialogueEdit");
 			dialogue.TextChanged += ChangedDialogue;
 
-			_ID = GetNode<SpinBox>("MarginContainer/Panel/VBoxContainer/HBoxContainer/SpinBox");
+			_ID = GetNode<SpinBox>("%IDBox");
 			_ID.ValueChanged += ChangedID;
 
-			nextID = GetNode<SpinBox>("MarginContainer/Panel/VBoxContainer/HBoxContainer2/SpinBox2");
+			nextID = GetNode<SpinBox>("%NextIDBox");
 			nextID.ValueChanged += ChangednextID;
 		}
 
@@ -88,6 +88,5 @@ namespace DiaLogo
 			_ID.Value = ((DialogueLine)dialogueBase).DialogueID;
 			nextID.Value = ((DialogueLine)dialogueBase).NextID;
 		}
-
 	}
 }

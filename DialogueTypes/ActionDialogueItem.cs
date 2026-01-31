@@ -19,28 +19,28 @@ namespace DiaLogo
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			upButton = GetNode<Button>("MarginContainer/Panel/VBoxContainer/HBoxContainer/UpButton");
+			upButton = GetNode<Button>("%UpButton");
 			upButton.Pressed += MoveUp;
 
-			downButton = GetNode<Button>("MarginContainer/Panel/VBoxContainer/HBoxContainer2/DownButton");
+			downButton = GetNode<Button>("%DownButton");
 			downButton.Pressed += MoveDown;
 
-			delButton = GetNode<Button>("MarginContainer/Panel/VBoxContainer/HBoxContainer/DelButton");
+			delButton = GetNode<Button>("%DelButton");
 			delButton.Pressed += DeletePressed;
 
-			ActionBox = GetNode<TextEdit>("MarginContainer/Panel/VBoxContainer/HBoxContainer/ActionEdit");
+			ActionBox = GetNode<TextEdit>("%ActionEdit");
 			ActionBox.TextChanged += ChangedAction;
 
-			Character = GetNode<TextEdit>("MarginContainer/Panel/VBoxContainer/HBoxContainer/CharactgerEdit");
+			Character = GetNode<TextEdit>("%CharactgerEdit");
 			Character.TextChanged += ChangedCharacter;
 
-			Dialogue = GetNode<TextEdit>("MarginContainer/Panel/VBoxContainer/HBoxContainer2/DialogueEdit");
+			Dialogue = GetNode<TextEdit>("%DialogueEdit");
 			Dialogue.TextChanged += ChangedDialogue;
 
-			ID = GetNode<SpinBox>("MarginContainer/Panel/VBoxContainer/HBoxContainer/SpinBox");
+			ID = GetNode<SpinBox>("%IDBox");
 			ID.ValueChanged += ChangedID;
 
-			NextID = GetNode<SpinBox>("MarginContainer/Panel/VBoxContainer/HBoxContainer2/SpinBox2");
+			NextID = GetNode<SpinBox>("%NextIDBox");
 			NextID.ValueChanged += ChangedNextID;
 		}
 
@@ -95,6 +95,5 @@ namespace DiaLogo
 			ID.Value = ((ActionDialogue)dialogueBase).DialogueID; //This sends a signal when updated to set DialogueId to ID.Value, and yes its stupid, I blame the engine
 			NextID.Value = ((ActionDialogue)dialogueBase).NextID; //Same as above, I could have it so the objects only update when save is hit
         }
-
 	}
 }

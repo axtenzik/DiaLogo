@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://w4ybnyok6ktn"]
+
+[ext_resource type="Script" uid="uid://ddq30fmqsc8hp" path="res://addons/DiaLogo/DialogueTypes/ActionDialogueResponseItem.cs" id="1_hr6qb"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=2044602695]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+script = ExtResource("1_hr6qb")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=252076802]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=216706608]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1705070487]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="UpButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=986242823]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "↑"
+
+[node name="IDLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1240560575]
+layout_mode = 2
+text = "ID:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IDEdit" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1656780060]
+unique_name_in_owner = true
+layout_mode = 2
+rounded = true
+allow_greater = true
+alignment = 2
+
+[node name="Spacer1" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=21779636]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="CharacterLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1684362864]
+layout_mode = 2
+text = "Character:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharactgerEdit" type="TextEdit" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1989262568]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+placeholder_text = "Enter name"
+
+[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=703992987]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="ActionLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=295077081]
+layout_mode = 2
+text = "Action:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionEdit" type="TextEdit" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1015260767]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+placeholder_text = "Enter Action"
+
+[node name="Spacer3" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1032992465]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DelButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2053757282]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "-"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1266770939]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="DownButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=831276114]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "↓"
+
+[node name="DialogueLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1486280002]
+layout_mode = 2
+text = "Dialogue Line:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogueEdit" type="TextEdit" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1619385339]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+placeholder_text = "Type Your Dialogue Here!"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1021352653]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer3" unique_id=1240671678]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer3" unique_id=1201609014]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Responses: "
+fit_content = true
+autowrap_mode = 0
+
+[node name="AddResponseButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer3" unique_id=751796654]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 0
+text = "+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer3" unique_id=944508269]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResponsesVBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer3/ScrollContainer" unique_id=901834386]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
