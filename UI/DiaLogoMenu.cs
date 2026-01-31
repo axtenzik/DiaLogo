@@ -80,6 +80,9 @@ namespace DiaLogo
 				case "Dialogue Line":
 					dialogueObject = new DialogueLine();
 					break;
+				case "Dialogue with Responses":
+					dialogueObject = new DialogueResponse();
+					break;
 			}
 
 			if (dialogueObject == null)
@@ -166,6 +169,7 @@ namespace DiaLogo
 					case ActionDialogue ad:
 					case ActionDialogueResponse adr:
 					case DialogueLine od:
+					case DialogueResponse dr:
 						SceneToAdd = GD.Load<PackedScene>(dialogueBase.SceneUID);
 						instance = (BaseItem)SceneToAdd.Instantiate();
 						break;

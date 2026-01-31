@@ -4,9 +4,8 @@ using System;
 namespace DiaLogo
 {
 	[Tool]
-	public partial class ActionDialogueResponseItem : BaseItem
+	public partial class DialogueResponseItem : BaseItem
 	{
-		public TextEdit ActionBox;
 		public TextEdit Character;
 		public TextEdit Dialogue;
 		public SpinBox ID;
@@ -19,7 +18,7 @@ namespace DiaLogo
 		Button delButton;
 
 		string responseUID = "uid://chwqjs7rp4jjj";
-		
+
 		public override void _Ready()
 		{
 			responsesVBox = GetNode<VBoxContainer>("%ResponsesVBox");
@@ -36,9 +35,6 @@ namespace DiaLogo
 			delButton = GetNode<Button>("%DelButton");
 			delButton.Pressed += DeletePressed;
 
-			ActionBox = GetNode<TextEdit>("%ActionEdit");
-			ActionBox.TextChanged += ChangedAction;
-
 			Character = GetNode<TextEdit>("%CharactgerEdit");
 			Character.TextChanged += ChangedCharacter;
 
@@ -51,10 +47,10 @@ namespace DiaLogo
 
 		private void AddResponse()
 		{
-			((ActionDialogueResponse)Parent).ResponseList ??= [];
+			((DialogueResponse)Parent).ResponseList ??= [];
 
 			ResponseLine responseObject = new();
-			((ActionDialogueResponse)Parent).ResponseList.Add(responseObject);
+			((DialogueResponse)Parent).ResponseList.Add(responseObject);
 
 			PackedScene SceneToAdd = GD.Load<PackedScene>(responseUID);
 			ResponseItem instance = (ResponseItem)SceneToAdd.Instantiate();
@@ -65,30 +61,25 @@ namespace DiaLogo
 			responsesVBox.AddChild(instance);
 		}
 
-		public void ChangedAction()
+		private void DeleteResponse(ResponseItem responseItem)
 		{
-			((ActionDialogueResponse)Parent).Action = ActionBox.Text;
+			((DialogueResponse)Parent).ResponseList.Remove(responseItem.Parent);
+			responseItem.QueueFree();
 		}
 
 		public void ChangedCharacter()
 		{
-			((ActionDialogueResponse)Parent).Character = Character.Text;
+			((DialogueResponse)Parent).Character = Character.Text;
 		}
 
 		public void ChangedDialogue()
 		{
-			((ActionDialogueResponse)Parent).DialogueText = Dialogue.Text;
+			((DialogueResponse)Parent).DialogueText = Dialogue.Text;
 		}
 
 		public void ChangedID(double id)
 		{
-			((ActionDialogueResponse)Parent).DialogueID = (float)id;
-		}
-
-		private void DeleteResponse(ResponseItem responseItem)
-		{
-			((ActionDialogueResponse)Parent).ResponseList.Remove(responseItem.Parent);
-			responseItem.QueueFree();
+			((DialogueResponse)Parent).DialogueID = (float)id;
 		}
 
 		public void MoveUp()
@@ -111,13 +102,12 @@ namespace DiaLogo
 
 		public override void SetFields(DialogueBase dialogueBase)
 		{
-			ActionBox.Text = ((ActionDialogueResponse)dialogueBase).Action;
-			Character.Text = ((ActionDialogueResponse)dialogueBase).Character;
-			Dialogue.Text = ((ActionDialogueResponse)dialogueBase).DialogueText;
-			ID.Value = ((ActionDialogueResponse)dialogueBase).DialogueID;
+			Character.Text = ((DialogueResponse)dialogueBase).Character;
+			Dialogue.Text = ((DialogueResponse)dialogueBase).DialogueText;
+			ID.Value = ((DialogueResponse)dialogueBase).DialogueID;
 
 			PackedScene SceneToAdd = GD.Load<PackedScene>(responseUID);
-			foreach (ResponseLine responseLine in ((ActionDialogueResponse)dialogueBase).ResponseList)
+			foreach (ResponseLine responseLine in ((DialogueResponse)dialogueBase).ResponseList)
 			{
 				ResponseItem instance = (ResponseItem)SceneToAdd.Instantiate();
 				responsesVBox.AddChild(instance);

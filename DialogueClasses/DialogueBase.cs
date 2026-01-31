@@ -9,6 +9,7 @@ namespace DiaLogo
 	[XmlInclude(typeof(ActionDialogue))]
 	[XmlInclude(typeof(ActionDialogueResponse))]
 	[XmlInclude(typeof(DialogueLine))]
+	[XmlInclude(typeof(DialogueResponse))]
 	public abstract class DialogueBase
 	{
 		public abstract string SceneUID { get; }

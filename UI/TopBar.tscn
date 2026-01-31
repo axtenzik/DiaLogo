@@ -34,13 +34,15 @@ text = "+"
 layout_mode = 2
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "Dialogue Line"
-popup/item_0/id = 1
-popup/item_1/text = "Action Dialogue"
-popup/item_1/id = 0
-popup/item_2/text = "Action Dialogue with Responses"
+popup/item_0/id = 0
+popup/item_1/text = "Dialogue with Responses"
+popup/item_1/id = 1
+popup/item_2/text = "Action Dialogue"
 popup/item_2/id = 2
+popup/item_3/text = "Action Dialogue with Responses"
+popup/item_3/id = 3
 
 [node name="Control" type="Control" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=605135003]
 layout_mode = 2
